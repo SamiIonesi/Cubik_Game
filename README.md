@@ -13,7 +13,7 @@ The core design principle is guided, positive reinforcement to ensure a non-frus
 
 - **Motor Goals**: Develop hand-eye coordination, grip control, and crossing the midline (due to shape generation on both left and right sides).
 
-** Key Features
+## Key Features
 1. **Infinite Guided Gameplay**: The game features continuous, self-paced play that cycles through 6 distinct geometric shapes. There are no levels to fail or a session to end, allowing for extended practice.
 
 2. **Seated, Accessible Design**: All interaction zones (board, shape generators, display) are placed within easy, comfortable reach for a patient seated on a chair, prioritizing accessibility and minimizing physical fatigue.
@@ -29,16 +29,16 @@ The core design principle is guided, positive reinforcement to ensure a non-frus
 ## How It Works
 The game sequence follows a simple, repetitive loop:
 
-1. Initial Prompt: The display instructs the user to look at the right-side generator.
+1. **Initial Prompt**: The display instructs the user to look at the right-side generator.
 
-2. Shape Generation (Right): A random geometric shape appears on the right generation spot.
+2. **Shape Generation** (Right): A random geometric shape appears on the right generation spot.
 
-3. Matching Task: The user uses the hand controller to pick up the shape and attempt to place it into the corresponding cutout on the central board.
+3. **Matching Task**: The user uses the hand controller to pick up the shape and attempt to place it into the corresponding cutout on the central board.
 
-4. Feedback Loop:
+4. **Feedback Loop**:
 
-- Success: A congratulatory message appears. A new, randomly chosen shape is generated on the left side, restarting the loop.
+- **Success**: A congratulatory message appears. A new, randomly chosen shape is generated on the left side, restarting the loop.
 
-- Failure: The display gives corrective instructions, and the correct slot may flash until the shape is successfully placed.
+- **Failure**: The display gives corrective instructions, and the correct slot may flash until the shape is successfully placed.
 
-5. Alternation: After a successful left-side placement, the game cycles back to generating a shape on the right, ensuring even practice across both hands.
+5. **Alternation**: After a successful left-side placement, the game cycles back to generating a shape on the right, ensuring even practice across both hands.
