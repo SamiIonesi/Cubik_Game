@@ -37,8 +37,8 @@ The game sequence follows a simple, repetitive loop:
 
 4. **Feedback Loop**:
 
-- **Success**: A congratulatory message appears. A new, randomly chosen shape is generated on the left side, restarting the loop.
+  - **Success**: A congratulatory message appears. A new, randomly chosen shape is generated on the left side, restarting the loop.
 
-- **Failure**: The display gives corrective instructions, and the correct slot may flash until the shape is successfully placed.
+  - **Failure**: The display gives corrective instructions, and the correct slot may flash until the shape is successfully placed.
 
 5. **Alternation**: After a successful left-side placement, the game cycles back to generating a shape on the right, ensuring even practice across both hands.
