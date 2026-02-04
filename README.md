@@ -87,6 +87,7 @@ System.Collections.IEnumerator RedaInstructiuneVocala(ShapePair pair)
     yield return new WaitForSeconds(voceIaForma.length); // Așteaptă terminarea
     audioSursa.PlayOneShot(pair.voceNumeForma);
 }
+```
 
 Iată documentația completă, formatată profesional în Markdown, gata de a fi copiată direct în fișierul README.md de pe GitHub.
 
