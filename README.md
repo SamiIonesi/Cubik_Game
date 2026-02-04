@@ -51,41 +51,41 @@ Sistemul este construit pe o arhitectură centralizată, unde scriptul **GameMan
 #### **1. Game Manager (Central Logic Control)**
 Acesta este pilonul central al aplicației, implementat ca un Singleton pentru a permite accesul global din orice alt script fără referințe complexe.
 
-Gestionarea Stărilor (State Machine): Controlează fluxul jocului prin stări distincte: Inițializare Scenă -> Generare Nivel -> Așteptare Input Jucător -> Validare -> Feedback -> Resetare Nivel.
+- Gestionarea Stărilor (State Machine): Controlează fluxul jocului prin stări distincte: Inițializare Scenă -> Generare Nivel -> Așteptare Input Jucător -> Validare -> Feedback -> Resetare Nivel.
 
-Corutine Audio (Audio Coroutines): Utilizează IEnumerator pentru a gestiona secvențialitatea instrucțiunilor vocale. Acest lucru previne suprapunerea sunetelor ("clipping") asigurând că instrucțiunea "Ia forma..." se termină complet înainte ca numele formei să fie pronunțat.
+- Corutine Audio (Audio Coroutines): Utilizează IEnumerator pentru a gestiona secvențialitatea instrucțiunilor vocale. Acest lucru previne suprapunerea sunetelor ("clipping") asigurând că instrucțiunea "Ia forma..." se termină complet înainte ca numele formei să fie pronunțat.
 
-Baza de Date a Formelor (Scriptable Logic): Deține o listă de obiecte de tip ShapePair, care leagă prefab-ul vizual (forma reală), "fantoma" (socket-ul) și clipurile audio specifice fiecărei forme.
+- Baza de Date a Formelor (Scriptable Logic): Deține o listă de obiecte de tip ShapePair, care leagă prefab-ul vizual (forma reală), "fantoma" (socket-ul) și clipurile audio specifice fiecărei forme.
 
-🎮 2. XR Interaction System (Interacțiune Fizică)
+#### **2. XR Interaction System (Interacțiune Fizică)**
 Sistemul bazat pe Unity XR Interaction Toolkit gestionează puntea dintre acțiunile fizice ale utilizatorului și lumea virtuală.
 
-VR Player Rig: Configurează camera pentru a simula înălțimea unui utilizator așezat (Seated Mode), esențial pentru accesibilitate. Controllerele sunt mapate pentru a urmări mișcarea mâinilor în timp real.
+- VR Player Rig: Configurează camera pentru a simula înălțimea unui utilizator așezat (Seated Mode), esențial pentru accesibilitate. Controllerele sunt mapate pentru a urmări mișcarea mâinilor în timp real.
 
-XR Grab Interactables: Obiectele geometrice au configurate puncte de prindere (Attach Points) precise pentru a preveni "intrarea" mâinii virtuale în obiect.
+- XR Grab Interactables: Obiectele geometrice au configurate puncte de prindere (Attach Points) precise pentru a preveni "intrarea" mâinii virtuale în obiect.
 
-Smart Sockets (Validare Logică):
+- Smart Sockets (Validare Logică):
 
-Fiecare zonă de pe masă este un XRSocketInteractor modificat.
+- Fiecare zonă de pe masă este un XRSocketInteractor modificat.
 
 Acestea nu doar atrag obiectele, ci interoghează activ Tag-ul obiectului introdus.
 
 Mecanism Anti-Flicker: Dacă utilizatorul apropie o piesă greșită, socket-ul o respinge fizic și se dezactivează temporar (Cooldown) pentru a evita declanșarea repetată a sunetului de eroare.
 
-📢 3. Feedback System (Multimodal Output)
+#### **3. Feedback System (Multimodal Output)**
 Sistemul este conceput să ofere răspunsuri simultane pe trei canale senzoriale pentru a maximiza înțelegerea sarcinii.
 
-Visual Feedback (SocketColorFeedback.cs):
+- Visual Feedback (SocketColorFeedback.cs):
 
 Script dedicat atașat fiecărui socket care schimbă materialul "fantomei" în timp real: Gri (Neutru), Verde (Corect - la validare), Roșu (Greșit - la încercare eșuată).
 
 La plasarea corectă, fizica obiectului este dezactivată (isKinematic = true), iar obiectul se "lipește" vizual de socket.
 
-Audio Feedback System:
+- Audio Feedback System:
 
 Layering Audio: Utilizează două surse audio (AudioSource) distincte. Sursa de Muzică rulează pe un canal secundar la volum redus (Loop), în timp ce sursa de Voce/SFX are prioritate maximă (Priority High) și volum 100%.
 
-UI Feedback (Monitor Virtual):
+- UI Feedback (Monitor Virtual):
 
 Un Canvas World-Space plasat ergonomic în fața utilizatorului.
 
