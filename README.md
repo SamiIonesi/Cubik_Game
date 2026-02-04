@@ -66,20 +66,20 @@ Sistemul bazat pe Unity XR Interaction Toolkit gestionează puntea dintre acțiu
 
 - Smart Sockets (Validare Logică):
 
-- Fiecare zonă de pe masă este un XRSocketInteractor modificat.
+   - Fiecare zonă de pe masă este un XRSocketInteractor modificat.
 
-Acestea nu doar atrag obiectele, ci interoghează activ Tag-ul obiectului introdus.
+   - Acestea nu doar atrag obiectele, ci interoghează activ Tag-ul obiectului introdus.
 
-Mecanism Anti-Flicker: Dacă utilizatorul apropie o piesă greșită, socket-ul o respinge fizic și se dezactivează temporar (Cooldown) pentru a evita declanșarea repetată a sunetului de eroare.
+   - Mecanism Anti-Flicker: Dacă utilizatorul apropie o piesă greșită, socket-ul o respinge fizic și se dezactivează temporar (Cooldown) pentru a evita declanșarea repetată a sunetului de eroare.
 
 #### **3. Feedback System (Multimodal Output)**
 Sistemul este conceput să ofere răspunsuri simultane pe trei canale senzoriale pentru a maximiza înțelegerea sarcinii.
 
 - Visual Feedback (SocketColorFeedback.cs):
 
-Script dedicat atașat fiecărui socket care schimbă materialul "fantomei" în timp real: Gri (Neutru), Verde (Corect - la validare), Roșu (Greșit - la încercare eșuată).
+      - Script dedicat atașat fiecărui socket care schimbă materialul "fantomei" în timp real: Gri (Neutru), Verde (Corect - la validare), Roșu (Greșit - la încercare eșuată).
 
-La plasarea corectă, fizica obiectului este dezactivată (isKinematic = true), iar obiectul se "lipește" vizual de socket.
+      - La plasarea corectă, fizica obiectului este dezactivată (isKinematic = true), iar obiectul se "lipește" vizual de socket.
 
 - Audio Feedback System:
 
