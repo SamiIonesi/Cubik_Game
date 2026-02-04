@@ -14,6 +14,7 @@ Proiectul pune accent pe accesibilitate și **întărirea pozitivă**, oferind u
 
 ## 2. Descrierea Jocului
 Jocul plasează utilizatorul într-o cameră virtuală liniștită, așezat la o masă de lucru. Sarcina principală este identificarea, apucarea și potrivirea formelor geometrice în soclurile corespunzătoare.
+![WhatsApp Image 2026-02-03 at 20 41 56](https://github.com/user-attachments/assets/fa2a4865-b212-4093-8ee6-d9f4798d84ff)
 
 ### Funcționalități Cheie:
 * **Gameplay Infinit & Ciclic**: Nivelurile se regenerează automat, permițând sesiuni de antrenament continue fără ecrane de "Game Over".
@@ -42,7 +43,8 @@ Proiectul a fost realizat folosind un stack tehnologic modern pentru dezvoltarea
 ## 4. Arhitectura Sistemului (Diagrama Bloc)
 Sistemul este construit pe o arhitectură centralizată, unde scriptul **GameManager** coordonează fluxul de date între jucător (Input) și sistemele de feedback (Output).
 
-![Diagrama Bloc](Media/diagrama_bloc.png)
+[Cubik_Game_Diagram.pdf](https://github.com/user-attachments/files/25075866/Cubik_Game_Diagram.pdf)
+
 *(Notă: Urcă imaginea diagramei generate în folderul Media al repo-ului)*
 
 ### Componente Principale:
@@ -57,8 +59,7 @@ Sistemul este construit pe o arhitectură centralizată, unde scriptul **GameMan
 ## 5. Fluxul de Execuție (Workflow)
 Logica jocului urmează un algoritm liniar cu bucle de validare pentru a asigura corectitudinea acțiunilor utilizatorului.
 
-![Workflow Diagram](Media/workflow_landscape.png)
-*(Notă: Urcă imaginea workflow-ului landscape în folderul Media al repo-ului)*
+[Cubik_Game_Flow.pdf](https://github.com/user-attachments/files/25075872/Cubik_Game_Flow.pdf)
 
 ### Descrierea Pașilor:
 1.  **Inițializare**: Se încarcă scena, pornește muzica de fundal (volum redus) și mesajul de bun venit.
