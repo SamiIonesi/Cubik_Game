@@ -1,4 +1,4 @@
-# Cubik Game - VR Cognitive Rehabilitation
+# Cubik Game
 **Aplicație de Realitate Virtuală pentru dezvoltarea abilităților cognitive și motrice.**
 
 ![Unity](https://img.shields.io/badge/Unity-2022.3+-black?style=flat&logo=unity)
