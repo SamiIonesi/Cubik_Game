@@ -1,44 +1,89 @@
-# Cubik_Game
-VR shape-matching game for cognitive and motor skill development in disabled users.
+# Cubik Game - VR Cognitive Rehabilitation
+**Aplicație de Realitate Virtuală pentru dezvoltarea abilităților cognitive și motrice.**
 
-## Project Overview
-**Cubik Game** is a purpose-built virtual reality (VR) application designed to enhance **cognitive function, fine motor skills, and spatial awareness** for individuals with mental disabilities. Developed for the **Meta Quest 2** platform, the application provides a calming, distraction-free environment where users engage in a foundational shape-matching task.
+![Unity](https://img.shields.io/badge/Unity-2022.3+-black?style=flat&logo=unity)
+![Platform](https://img.shields.io/badge/Platform-Meta_Quest_2-blue?style=flat&logo=oculus)
+![Status](https://img.shields.io/badge/Status-Finished-green)
 
-The core design principle is guided, positive reinforcement to ensure a non-frustrating and effective learning experience. By using physical interaction via the Quest controllers, the game helps bridge the gap between virtual task execution and real-world motor skill development.
+## 1. Introducere
+**Cubik Game** este o aplicație VR terapeutică dezvoltată pentru **Meta Quest 2**, destinată persoanelor cu dizabilități cognitive sau motorii. Scopul principal este crearea unui mediu controlat, lipsit de distrageri, unde utilizatorii pot exersa coordonarea mână-ochi, recunoașterea formelor și atenția distributivă.
 
-## Target Audience & Goals
-- **Target Users**: Individuals with mental or cognitive disabilities who benefit from structured, repetitive, and guided exercises.
+Proiectul pune accent pe accesibilitate și **întărirea pozitivă**, oferind un flux de joc ghidat pas cu pas prin instrucțiuni audio și vizuale clare.
 
-- **Cognitive Goals**: Improve shape recognition, attention span, and the ability to follow sequential instructions.
+---
 
-- **Motor Goals**: Develop hand-eye coordination, grip control, and crossing the midline (due to shape generation on both left and right sides).
+## 2. Descrierea Jocului
+Jocul plasează utilizatorul într-o cameră virtuală liniștită, așezat la o masă de lucru. Sarcina principală este identificarea, apucarea și potrivirea formelor geometrice în soclurile corespunzătoare.
 
-## Key Features
-1. **Infinite Guided Gameplay**: The game features continuous, self-paced play that cycles through 6 distinct geometric shapes. There are no levels to fail or a session to end, allowing for extended practice.
+### Funcționalități Cheie:
+* **Gameplay Infinit & Ciclic**: Nivelurile se regenerează automat, permițând sesiuni de antrenament continue fără ecrane de "Game Over".
+* **Coordonare Bilaterală**: Formele sunt generate aleatoriu în stânga sau în dreapta utilizatorului, încurajând folosirea ambelor mâini și trecerea liniei mediene a corpului.
+* **Feedback Multimodal**:
+    * *Vizual*: Schimbarea culorii soclului (Verde/Roșu) și efecte de particule.
+    * *Auditiv*: Instrucțiuni vocale (Text-to-Speech) și efecte sonore (SFX) pentru succes/eroare.
+    * *Text*: Instrucțiuni afișate pe un monitor virtual în fața utilizatorului.
 
-2. **Seated, Accessible Design**: All interaction zones (board, shape generators, display) are placed within easy, comfortable reach for a patient seated on a chair, prioritizing accessibility and minimizing physical fatigue.
+---
 
-3. **Real-Time Instructional Display**: A dedicated display screen directly in front of the user provides clear, step-by-step text instructions for every phase of the task.
+## 3. Platforme și Tool-uri Folosite
+Proiectul a fost realizat folosind un stack tehnologic modern pentru dezvoltarea VR:
 
-4. **Error Correction & Progressive Hinting**: If a shape is placed incorrectly, the system provides immediate, gentle instructions and visual cues (e.g., highlighting the correct slot) to guide the user without causing frustration.
+| Categorie | Tool / Tehnologie | Detalii |
+| :--- | :--- | :--- |
+| **Motor Grafic** | **Unity 2022.3 LTS** | Universal Render Pipeline (URP) |
+| **VR Framework** | **XR Interaction Toolkit** | Gestionarea Grab, Ray Interactors și Sockets |
+| **Hardware** | **Meta Quest 2** | Platformă target Android |
+| **Limbaj** | **C#** | Scripting pentru logica jocului |
+| **UI** | **TextMeshPro** | Afișare text clară în VR |
+| **Audio** | **Audacity / TTS** | Procesarea instrucțiunilor vocale |
 
-5. **Positive Reinforcement**: Successful placement is immediately followed by a congratulatory message and the activation of the next randomized task, reinforcing positive actions.
+---
 
-6. **Alternating Hand Use**: Shapes are randomly generated on the left and right sides of the table, requiring the user to alternate reach and promoting bilateral coordination.
+## 4. Arhitectura Sistemului (Diagrama Bloc)
+Sistemul este construit pe o arhitectură centralizată, unde scriptul **GameManager** coordonează fluxul de date între jucător (Input) și sistemele de feedback (Output).
 
-## How It Works
-The game sequence follows a simple, repetitive loop:
+![Diagrama Bloc](Media/diagrama_bloc.png)
+*(Notă: Urcă imaginea diagramei generate în folderul Media al repo-ului)*
 
-1. **Initial Prompt**: The display instructs the user to look at the right-side generator.
+### Componente Principale:
+1.  **GameManager (Singleton)**: "Creierul" aplicației. Gestionează stările jocului, scorul și cronometrarea evenimentelor.
+2.  **XR Interaction System**:
+    * **VR Player**: Camera și Controllerele.
+    * **Socket Interactors**: Logica de validare a formelor pe masă.
+3.  **Feedback System**: Sincronizează mesajele de pe monitor cu fișierele audio și efectele vizuale.
 
-2. **Shape Generation** (Right): A random geometric shape appears on the right generation spot.
+---
 
-3. **Matching Task**: The user uses the hand controller to pick up the shape and attempt to place it into the corresponding cutout on the central board.
+## 5. Fluxul de Execuție (Workflow)
+Logica jocului urmează un algoritm liniar cu bucle de validare pentru a asigura corectitudinea acțiunilor utilizatorului.
 
-4. **Feedback Loop**:
+![Workflow Diagram](Media/workflow_landscape.png)
+*(Notă: Urcă imaginea workflow-ului landscape în folderul Media al repo-ului)*
 
-    - **Success**: A congratulatory message appears. A new, randomly chosen shape is generated on the left side, restarting the loop.
+### Descrierea Pașilor:
+1.  **Inițializare**: Se încarcă scena, pornește muzica de fundal (volum redus) și mesajul de bun venit.
+2.  **Spawn & Instrucțiune**:
+    * GameManager alege o formă aleatorie și o poziție (Stânga/Dreapta).
+    * Se declanșează secvența audio: *"Ia forma [X] din [Stânga]..."*.
+3.  **Acțiune & Validare**:
+    * Jucătorul pune piesa în soclu.
+    * Scriptul `SocketColorFeedback` verifică Tag-ul obiectului.
+4.  **Ramificare (Decision)**:
+    * **Corect**: Piesa se blochează (Kinematic), devine verde -> Feedback Pozitiv.
+    * **Greșit**: Piesa este respinsă, devine roșie -> Feedback Corectiv -> Cooldown 5 secunde.
 
-    - **Failure**: The display gives corrective instructions, and the correct slot may flash until the shape is successfully placed.
+---
 
-5. **Alternation**: After a successful left-side placement, the game cycles back to generating a shape on the right, ensuring even practice across both hands.
+## 6. Implementare Tehnică (Highlights)
+
+### Gestionarea Audio (Evitarea Suprapunerilor)
+Pentru a preveni haosul auditiv (muzică + voce + efecte simultan), am folosit **Corutine** (`IEnumerator`) pentru a aștepta terminarea unui clip audio înainte de a începe următorul.
+
+```csharp
+// Exemplu din GameManager.cs
+System.Collections.IEnumerator RedaInstructiuneVocala(ShapePair pair)
+{
+    audioSursa.PlayOneShot(voceIaForma);
+    yield return new WaitForSeconds(voceIaForma.length); // Așteaptă terminarea
+    audioSursa.PlayOneShot(pair.voceNumeForma);
+}
