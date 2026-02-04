@@ -77,19 +77,19 @@ Sistemul este conceput să ofere răspunsuri simultane pe trei canale senzoriale
 
 - Visual Feedback (SocketColorFeedback.cs):
 
-      - Script dedicat atașat fiecărui socket care schimbă materialul "fantomei" în timp real: Gri (Neutru), Verde (Corect - la validare), Roșu (Greșit - la încercare eșuată).
+  - Script dedicat atașat fiecărui socket care schimbă materialul "fantomei" în timp real: Gri (Neutru), Verde (Corect - la validare), Roșu (Greșit - la încercare eșuată).
 
-      - La plasarea corectă, fizica obiectului este dezactivată (isKinematic = true), iar obiectul se "lipește" vizual de socket.
+   - La plasarea corectă, fizica obiectului este dezactivată (isKinematic = true), iar obiectul se "lipește" vizual de socket.
 
 - Audio Feedback System:
 
-Layering Audio: Utilizează două surse audio (AudioSource) distincte. Sursa de Muzică rulează pe un canal secundar la volum redus (Loop), în timp ce sursa de Voce/SFX are prioritate maximă (Priority High) și volum 100%.
+   - Layering Audio: Utilizează două surse audio (AudioSource) distincte. Sursa de Muzică rulează pe un canal secundar la volum redus (Loop), în timp ce sursa de Voce/SFX are prioritate maximă (Priority High) și volum 100%.
 
 - UI Feedback (Monitor Virtual):
 
-Un Canvas World-Space plasat ergonomic în fața utilizatorului.
+   - Un Canvas World-Space plasat ergonomic în fața utilizatorului.
 
-Textul este actualizat dinamic prin GameManager pentru a reflecta exact instrucțiunea vocală curentă, oferind suport pentru persoanele cu deficiențe de auz.
+   - Textul este actualizat dinamic prin GameManager pentru a reflecta exact instrucțiunea vocală curentă, oferind suport pentru persoanele cu deficiențe de auz.
 
 ---
 
