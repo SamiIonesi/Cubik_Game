@@ -43,9 +43,8 @@ Proiectul a fost realizat folosind un stack tehnologic modern pentru dezvoltarea
 ## 4. Arhitectura Sistemului (Diagrama Bloc)
 Sistemul este construit pe o arhitectură centralizată, unde scriptul **GameManager** coordonează fluxul de date între jucător (Input) și sistemele de feedback (Output).
 
-[Cubik_Game_Diagram.pdf](https://github.com/user-attachments/files/25075866/Cubik_Game_Diagram.pdf)
+<img width="1182" height="692" alt="image" src="https://github.com/user-attachments/assets/8c895678-35be-4a6c-a215-07f7b4ab4867" />
 
-*(Notă: Urcă imaginea diagramei generate în folderul Media al repo-ului)*
 
 ### Componente Principale:
 1.  **GameManager (Singleton)**: "Creierul" aplicației. Gestionează stările jocului, scorul și cronometrarea evenimentelor.
@@ -59,7 +58,7 @@ Sistemul este construit pe o arhitectură centralizată, unde scriptul **GameMan
 ## 5. Fluxul de Execuție (Workflow)
 Logica jocului urmează un algoritm liniar cu bucle de validare pentru a asigura corectitudinea acțiunilor utilizatorului.
 
-[Cubik_Game_Flow.pdf](https://github.com/user-attachments/files/25075872/Cubik_Game_Flow.pdf)
+<img width="625" height="746" alt="image" src="https://github.com/user-attachments/assets/96986201-f6b9-47a5-aaa0-6e29c308f509" />
 
 ### Descrierea Pașilor:
 1.  **Inițializare**: Se încarcă scena, pornește muzica de fundal (volum redus) și mesajul de bun venit.
