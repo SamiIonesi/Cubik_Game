@@ -1,10 +1,6 @@
 # Cubik Game
 **Aplicație de Realitate Virtuală pentru dezvoltarea abilităților cognitive și motrice.**
 
-![Unity](https://img.shields.io/badge/Unity-2022.3+-black?style=flat&logo=unity)
-![Platform](https://img.shields.io/badge/Platform-Meta_Quest_2-blue?style=flat&logo=oculus)
-![Status](https://img.shields.io/badge/Status-Finished-green)
-
 ## 1. Introducere
 **Cubik Game** este o aplicație VR terapeutică dezvoltată pentru **Meta Quest 2**, destinată persoanelor cu dizabilități cognitive sau motorii. Scopul principal este crearea unui mediu controlat, lipsit de distrageri, unde utilizatorii pot exersa coordonarea mână-ochi, recunoașterea formelor și atenția distributivă.
 
